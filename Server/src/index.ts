@@ -10,7 +10,9 @@ wss.on("connection",function(socket){
     },2000)
 
     socket.on("message",(e)=>{
-        console.log("Message from client: ", e.toString());
+        if(e.toString() === 'ping'){
+            socket.send('pong');
+        }
     })
 })
 
